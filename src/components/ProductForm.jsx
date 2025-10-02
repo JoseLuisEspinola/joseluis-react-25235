@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './ProductForm.css';
 
 function ProductForm({ initialData, onCancel, onSubmit }) {
   const [form, setForm] = useState({
@@ -30,10 +31,12 @@ function ProductForm({ initialData, onCancel, onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit} className="product-form">
-      <input name="name" value={form.name} onChange={handleChange} placeholder="Nombre" required />
-      <input name="price" value={form.price} onChange={handleChange} type="number" placeholder="Precio" required />
-      <input name="stock" value={form.stock} onChange={handleChange} type="number" placeholder="Stock" required />
-      <input name="image" value={form.image} onChange={handleChange} placeholder="URL de imagen" required />
+      <input name="name" value={form.name} onChange={handleChange} type="text" placeholder="Nombre" required />
+      <div className="prec-stock">
+        <input name="price" value={form.price} onChange={handleChange} type="number" placeholder="Precio" required />
+        <input name="stock" value={form.stock} onChange={handleChange} type="number" placeholder="Stock" required />
+      </div>
+      <input name="image" value={form.image} onChange={handleChange} type="url" placeholder="URL de imagen" required />
       <label>
         <input name="active" type="checkbox" checked={form.active} onChange={handleChange} />
         Activo
