@@ -3,7 +3,7 @@ import { CartContext } from '../context/CartContext';
 import CartItem from '../components/CartItem';
 
 function Carrito() {
-  const { cartItems, getTotal } = useContext(CartContext);
+  const { cartItems, getTotal, vaciarCarrito } = useContext(CartContext);
 
   return (
     <div style={styles.container}>
@@ -20,6 +20,10 @@ function Carrito() {
           <div style={styles.total}>
             <strong>Total del carrito:</strong> ${getTotal()}
           </div>
+
+          <button style={styles.botonVaciar} onClick={vaciarCarrito}>
+            Vaciar carrito
+          </button>
         </>
       )}
     </div>
@@ -36,6 +40,16 @@ const styles = {
     marginTop: '2rem',
     fontSize: '1.2rem',
     textAlign: 'right',
+  },
+  botonVaciar: {
+    marginTop: '1rem',
+    padding: '0.8rem 1.2rem',
+    backgroundColor: '#d32f2f',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    alignSelf: 'flex-end',
   },
 };
 

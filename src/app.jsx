@@ -4,6 +4,7 @@ import Products from './pages/Products';
 import Carrito from './pages/Carrito';
 import ProductAdmin from './pages/ProductAdmin';
 import Home from './pages/Home';
+import Footer from './components/Footer';
 import './app.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/carrito" element={<Carrito />} />
           {/* más rutas aqui. */}
         </Routes>
+        <Footer />
       </main>
     </Router>
   );

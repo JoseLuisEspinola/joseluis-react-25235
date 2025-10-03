@@ -1,9 +1,25 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
 function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const vaciarCarrito = () => {
+    setCartItems([]);
+  };
+
+  // 🧩 Cargar carrito desde localStorage al iniciar
+  useEffect(() => {
+    const guardado = localStorage.getItem('carrito');
+    if (guardado) {
+      setCartItems(JSON.parse(guardado));
+    }
+  }, []);
+
+  // 🧩 Guardar carrito en localStorage cada vez que cambia
+  useEffect(() => {
+    localStorage.setItem('carrito', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (product, cantidad) => {
     setCartItems(prev => {
@@ -45,6 +61,7 @@ function CartProvider({ children }) {
         addToCart,
         updateQuantity,
         removeFromCart,
+        vaciarCarrito,
         getTotal,
         cartCount,
       }}
@@ -54,5 +71,4 @@ function CartProvider({ children }) {
   );
 }
 
-// exporto la constante y la funcion respectivamente.
 export { CartContext, CartProvider };
