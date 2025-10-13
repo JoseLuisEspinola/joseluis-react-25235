@@ -5,7 +5,10 @@ import Carrito from './pages/Carrito';
 import ProductAdmin from './pages/ProductAdmin';
 import Home from './pages/Home';
 import Footer from './components/Footer';
+import PrivateRoute from './routes/PrivateRoute';
 import './app.css';
+import Login from './pages/Login';
+import NoAutorizado from './pages/NoAutorizado';
 
 function App() {
   const cartCount = 0; // temporal, luego vendrá del contexto
@@ -14,12 +17,35 @@ function App() {
     <Router>
       <main style={styles.app}>
         <Navbar cartCount={cartCount} />
+
         <Routes>
           <Route path="/" element={<Home />} />
+
+          {/* Productos: acceso libre, lógica interna decide qué mostrar */}
           <Route path="/productos" element={<Products />} />
-          <Route path="/admin" element={<ProductAdmin />} />
-          <Route path="/carrito" element={<Carrito />} />
-          {/* más rutas aqui. */}
+
+          {/* Carrito: solo client, vendedor, admin */}
+          <Route
+            path="/carrito"
+            element={
+              <PrivateRoute allowedRoles={['client', 'vendedor', 'admin']}>
+                <Carrito />
+              </PrivateRoute>
+            }
+          />
+
+          {/* Admin de productos: solo admin */}
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoute allowedRoles={['admin']}>
+                <ProductAdmin />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path='/no-autorizado' element={<NoAutorizado />} />
+          {/* más rutas aquí */}
         </Routes>
         <Footer />
       </main>
@@ -38,17 +64,3 @@ const styles = {
 };
 
 export default App;
-
-
-/* const styles = {
-  app: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    minHeight: '100vh',
-    backgroundColor: '#f5f5f5',
-  },
-}; */
-
-

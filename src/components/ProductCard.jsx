@@ -1,10 +1,11 @@
 import { useState, useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
-function ProductCard({ product }) {
+function ProductCard({ product, mostrarPrecio }) {
   const [cantidad, setCantidad] = useState(1);
   const [stockDisponible, setStockDisponible] = useState(product.stock);
   const sinStock = product.stock === 0;
+  const deshabilitado = sinStock || !mostrarPrecio;
 
   const { addToCart } = useContext(CartContext);
   
@@ -30,14 +31,14 @@ function ProductCard({ product }) {
         <h2 style={styles.name}>{product.name}</h2>
       </div>
 
-      <div style={styles.bloquePrecio}>
-        <p style={styles.price}>Precio: ${product.price}</p>
-      </div>
+      {mostrarPrecio && (
+        <div style={styles.bloquePrecio}>
+          <p style={styles.price}>Precio: ${product.price}</p>
+        </div>
+      )}
 
       <div style={styles.bloqueStock}>
-        {/* <p style={styles.stock}>Stock: {product.stock}</p> */}
         <p style={styles.stock}>Stock disponible: {stockDisponible}</p>
-
       </div>
 
       <div style={styles.bloqueControles}>
@@ -48,42 +49,42 @@ function ProductCard({ product }) {
             max={product.stock}
             value={cantidad}
             onChange={e => {
-                const valor = Number(e.target.value);
-                if (valor > stockDisponible) {
-                  setCantidad(stockDisponible);
-                } else if (valor < 1) {
-                  setCantidad(1);
-                } else {
-                  setCantidad(valor);
-                }
-              }}
-            disabled={sinStock}
+              const valor = Number(e.target.value);
+              if (valor > stockDisponible) {
+                setCantidad(stockDisponible);
+              } else if (valor < 1) {
+                setCantidad(1);
+              } else {
+                setCantidad(valor);
+              }
+            }}
+            disabled={deshabilitado}
             style={styles.input}
           />
           <button
             onClick={agregarAlCarrito}
-            disabled={sinStock}
+            disabled={deshabilitado}
             style={{
               ...styles.button,
-              backgroundColor: sinStock ? '#999' : '#1a2b6d',
-              cursor: sinStock ? 'not-allowed' : 'pointer',
+              backgroundColor: deshabilitado ? '#999' : '#1a2b6d',
+              cursor: deshabilitado ? 'not-allowed' : 'pointer',
             }}
-            >
+          >
             Agregar al carrito
           </button>
         </div>
       </div>
 
       <div style={styles.bloqueSinStock}>
-        <p
-          style={{...styles.sinStock, opacity: sinStock ? 1 : 0 }}
-          >
+        <p style={{ ...styles.sinStock, opacity: sinStock ? 1 : 0 }}>
           SIN STOCK
         </p>
       </div>
     </div>
   );
 }
+
+
 
 const styles = {
   card: {

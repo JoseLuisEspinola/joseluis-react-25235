@@ -83,7 +83,7 @@ function Home() {
         <details>
             <summary>¿Cuál es la ubicación de las oficinas?</summary>
             <p class="repuesta">
-                Has clic <a href="#container-sucursales">aquí</a> para ver la ubicación de nuestras oficinas.
+                Has clic <a href="#ubicacion">aquí</a> para ver la ubicación de nuestras oficinas.
             </p>
         </details>
     </section>

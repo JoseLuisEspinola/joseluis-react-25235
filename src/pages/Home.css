@@ -9,7 +9,7 @@
 /*   position: absolute; */
   width: 100%;
   height: calc(100vh - 80px); /* Ajustá según la altura real del navbar */
-  background-image: url('/public/shopping.jpg');
+  background-image: url('/shopping.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

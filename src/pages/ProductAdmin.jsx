@@ -86,7 +86,7 @@ function ProductAdmin() {
       <div style={styles.backdrop}>
         <div style={styles.modal}>
             {/* <h2>{editing?.id ? 'Modificar producto' : 'Agregar producto'}</h2> */}
-            <h2>{esEdicion ? 'Modificar Producto 📝' : 'Nuevo Producto ➕'}</h2>
+            <h2>{esEdicion ? 'Modificar Producto 📝' : 'Nuevo Producto ✔️'}</h2>
 
             <ProductForm
               initialData={editing}
