@@ -5,3 +5,29 @@
   padding: 1rem;
   font-size: 0.9rem;
 }
+
+/* Sociales */
+.sociales {
+    padding-bottom: 10px;
+}
+
+.sociales a {
+    padding: 0 4px;
+    margin-bottom: 10px;
+    display: inline-block;
+    -webkit-box-reflect: below 0px linear-gradient(transparent, rgba(185, 88, 88, 0.267));
+}
+
+.linkedin, .github, .facebook, .whatsapp {
+    width: 36px;
+    height: 36px;
+    border-radius: 50px;
+    
+    transition: 0.5s;
+}
+
+.linkedin:hover, .github:hover,
+.facebook:hover, .whatsapp:hover {
+    /* background-color: #ffffff; */
+    box-shadow: 1px 1px 14px 0 #abacaf, -1px -1px 14px 0 #abacaf;
+}

@@ -37,10 +37,34 @@ Los roles se definen en MockAPI y controlan el acceso a rutas y funcionalidades:
 
 
 Rol	ACCESO
-admin	Acceso total: CRUD de productos, carrito, gestión
-vendedor	Acceso limitado: puede ver productos, pero no editar
-client	Solo puede comprar, ver precios y stock, y su propio carrito (si está logueado)
+admin    : Acceso total: CRUD de productos, carrito, gestión
+vendedor : Acceso limitado: puede ver productos con precios, pero no editar
+client	 : Solo puede comprar, ver precios y stock, y su propio carrito (si está logueado)
 
+Datos cargados en MOCKAPI
+[
+  {
+    "id": "1",
+    "name": "Jose Luis",
+    "email": "jle36@hotmail.com",
+    "password": "admin123",
+    "role": "admin"
+  },
+  {
+    "id": "2",
+    "name": "Vendedor Sergio",
+    "email": "probando@gmail.com",
+    "password": "vend123",
+    "role": "vendedor"
+  },
+  {
+    "id": "3",
+    "name": "Cliente Pascual",
+    "email": "client@hotmail.com",
+    "password": "client123",
+    "role": "client"
+  }
+]
 
 
 ## Login y autenticación
