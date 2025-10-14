@@ -9,6 +9,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import './app.css';
 import Login from './pages/Login';
 import NoAutorizado from './pages/NoAutorizado';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   const cartCount = 0; // temporal, luego vendrá del contexto
@@ -23,6 +24,9 @@ function App() {
 
           {/* Productos: acceso libre, lógica interna decide qué mostrar */}
           <Route path="/productos" element={<Products />} />
+
+          {/* Detalle de producto: acceso libre */}
+          <Route path="/producto/:id" element={<ProductDetail />} /> {/* 👈 nueva ruta agregar esta linea en el nuevo proyecto*/}
 
           {/* Carrito: solo client, vendedor, admin */}
           <Route

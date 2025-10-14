@@ -16,8 +16,12 @@ function Home() {
 
             <section id="nosotros" className="nosotros">
                 <h2>NOSOTROS</h2>
-                <p>En ECOMMERS STORE, creemos que comprar debería ser una experiencia tan satisfactoria como el producto que recibís. Nacimos con una misión clara: acercarte lo mejor del mercado, con la comodidad de hacerlo desde donde estés, cuando quieras.
-                    Somos más que una tienda online. Somos un equipo apasionado por la calidad, la innovación y el servicio. Cada artículo que ves en nuestra plataforma ha sido cuidadosamente seleccionado para ofrecerte lo último en tendencias, funcionalidad y estilo. Ya sea que estés buscando renovar tu hogar, actualizar tu guardarropa o encontrar ese regalo perfecto, estamos acá para ayudarte a elegir con confianza.
+                <p>En ECOMMERS STORE, creemos que comprar debería ser una experiencia tan satisfactoria como el producto que recibís. 
+                    Nacimos con una misión clara: acercarte lo mejor del mercado, con la comodidad de hacerlo desde donde estés, 
+                    cuando quieras. Somos más que una tienda online. Somos un equipo apasionado por la calidad, la innovación y el 
+                    servicio. Cada artículo que ves en nuestra plataforma ha sido cuidadosamente seleccionado para ofrecerte lo 
+                    ltimo en tendencias, funcionalidad y estilo. Ya sea que estés buscando renovar tu hogar, actualizar tu guardarropa 
+                    o encontrar ese regalo perfecto, estamos acá para ayudarte a elegir con confianza.
                 </p>
                 <p className='centro'>🌐 Transparencia, rapidez y confianza son los pilares que nos definen.</p>
                 <p className='centro'>📦 Enviamos a todo el país, con seguimiento en tiempo real.</p>

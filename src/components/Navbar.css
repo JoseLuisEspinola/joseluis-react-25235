@@ -28,9 +28,13 @@
   display: none;
 }
 
-.separator {
-  margin-right: 16px;
+.user-name {
+  list-style: none;
+  font-weight: bold;
+  color: #ffff00;
+  padding: 0 1rem;
 }
+
 .navbar-links {
   list-style: none;
   display: flex;
@@ -39,6 +43,11 @@
   margin: 0;
   padding: 0;
 }
+
+.separator {
+  margin-right: 16px;
+}
+
 
 .navbar-links li a {
   color: white;
