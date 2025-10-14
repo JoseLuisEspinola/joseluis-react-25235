@@ -13,6 +13,7 @@ const styles = {
   container: {
     padding: '3rem',
     textAlign: 'center',
+    minHeight: '100vh',
     fontFamily: 'Arial, sans-serif',
   },
   title: {

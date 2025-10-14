@@ -1,17 +1,15 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import ProductRow from '../components/ProductRow';
 import ProductForm from '../components/ProductForm';
-import { UserContext } from '../context/UserContext'; // asumo que existe
 
 function ProductAdmin() {
-  const { user } = useContext(UserContext); // acceso al rol
-  /* console.log('Usuario logueado:', user); */  // es solo para ver si llegaba el usuario logueado
-
   const [products, setProducts] = useState([]);
-  const [editing, setEditing] = useState(null);
+  const [editing, setEditing] = useState(null); // null = no hay modal abierto
 
   const esEdicion = editing && typeof editing === 'object' && 'id' in editing;
 
+
+  
   useEffect(() => {
     fetch('https://68d5b9bae29051d1c0af67db.mockapi.io/products')
       .then(res => res.json())
@@ -30,7 +28,6 @@ function ProductAdmin() {
   }, []);
 
   const handleDelete = (id) => {
-    if (user.role !== 'admin') return;
     fetch(`https://68d5b9bae29051d1c0af67db.mockapi.io/products/${id}`, {
       method: 'DELETE',
     })
@@ -41,12 +38,10 @@ function ProductAdmin() {
   };
 
   const handleEdit = (product) => {
-    if (user.role !== 'admin') return;
     setEditing(product);
   };
 
   const handleSave = (producto) => {
-    if (user.role !== 'admin') return;
     const url = `https://68d5b9bae29051d1c0af67db.mockapi.io/products${producto.id ? `/${producto.id}` : ''}`;
     const method = producto.id ? 'PUT' : 'POST';
 
@@ -72,20 +67,9 @@ function ProductAdmin() {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Gestión de productos</h1>
-
-      <button
-          style={{
-            ...styles.addButton,
-            opacity: user.role === 'admin' ? 1 : 0.5,
-            cursor: user.role === 'admin' ? 'pointer' : 'not-allowed',
-          }}
-          onClick={() => {
-            if (user.role === 'admin') setEditing({});
-          }}
-          disabled={user.role !== 'admin'}>
-          Nuevo Producto
+      <button style={styles.addButton} onClick={() => setEditing({})}>
+        Nuevo Producto
       </button>
-
 
       <div style={styles.grid}>
         {products.map(product => (
@@ -94,15 +78,16 @@ function ProductAdmin() {
             product={product}
             onDelete={handleDelete}
             onEdit={handleEdit}
-            user={user}
           />
         ))}
       </div>
 
-      {editing !== null && user.role === 'admin' && (
-        <div style={styles.backdrop}>
-          <div style={styles.modal}>
+      {editing !== null && (
+      <div style={styles.backdrop}>
+        <div style={styles.modal}>
+            {/* <h2>{editing?.id ? 'Modificar producto' : 'Agregar producto'}</h2> */}
             <h2>{esEdicion ? 'Modificar Producto 📝' : 'Nuevo Producto ✔️'}</h2>
+
             <ProductForm
               initialData={editing}
               onCancel={() => setEditing(null)}
@@ -114,7 +99,6 @@ function ProductAdmin() {
     </div>
   );
 }
-
 
 const styles = {
   container: {
