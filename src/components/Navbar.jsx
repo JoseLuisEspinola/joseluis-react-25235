@@ -19,7 +19,10 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="navbar-title">Ecommerce Store</div>
+      <div className="container-title">
+        <div className="navbar-title">Ecommerce Store</div>
+        <p>Todo lo que amas, a un clic</p>
+      </div>
 
       {user && (
       <div className="user-name" title={user.name}>
@@ -42,7 +45,6 @@ function Navbar() {
         <li><Link to="/productos">Productos</Link></li>
         <li><Link to="/admin">Gestión</Link></li>
         <li className='separator'></li>
-
 
         {user ? (
           <li>
