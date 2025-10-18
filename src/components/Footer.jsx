@@ -16,7 +16,9 @@ function Footer() {
             <a href="https://api.whatsapp.com/send?phone=+543487616158&text=Hola%2C%20me%20gustaría%20realizar%20una%20página%20web...%20podrías%20contarme?" target="_blank" title="Ir a Whatsapp">
                 <img class="whatsapp" src="/whatsapp.png" alt="Whatsapp" />
             </a>
-            <p>© 2025 Ecommerce Store. Todos los derechos reservados.</p>
+            <p>© 2025 Ecommerce Store. Todos los derechos reservados - 
+                <a href="https://portafoliojoseluis.netlify.app/" className="portafoliojl" target="_blank">Jose Luis</a>
+            </p>
         </div>
      </footer>
   );

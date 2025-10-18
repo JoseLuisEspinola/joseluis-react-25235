@@ -1,5 +1,5 @@
 .footer {
-  background-color: #222;
+  background-color: #111827;
   color: #fff;
   text-align: center;
   padding: 1rem;
@@ -17,6 +17,17 @@
     display: inline-block;
     -webkit-box-reflect: below 0px linear-gradient(transparent, rgba(185, 88, 88, 0.267));
 }
+
+.sociales p .portafoliojl {
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-box-reflect: below 0px linear-gradient(transparent);
+}
+
+.sociales p .portafoliojl:hover {
+    color: #0ef;
+}
+
 
 .linkedin, .github, .facebook, .whatsapp {
     width: 36px;

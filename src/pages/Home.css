@@ -83,30 +83,7 @@ section .centro {
 }
 
 
-/* ******* Preguntas Frecuentes ******* */
-/* #container-preguntas {
-    padding-top: 96px;
-    padding-inline: 10%;
-    max-width: 100%;
-    max-height: auto;
-    background-color: #ddecfa;
-    margin: auto;
-}
-
-.title-preguntas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 30%;
-    height: 60px;
-    font-size: clamp(0.8rem, 3vw, 2rem);
-    margin: auto;
-    border-radius: 10px 80px;
-    color: #2e5f8c;
-    background-color: #80bffa;
-} */
-
+/* ***** Preguntas ****** */
 details { 
     padding-top: 30px;
 }
@@ -139,7 +116,7 @@ details p a:hover {
 
 /* mapa */
 iframe {
-  margin: 24px auto;
+  margin: 24px auto 50px;
   width: 100%;
   height: 500px;
   border-radius: 8px;
