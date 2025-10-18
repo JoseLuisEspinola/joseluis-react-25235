@@ -26,7 +26,7 @@ function Home() {
                 <p className='centro'>🌐 Transparencia, rapidez y confianza son los pilares que nos definen.</p>
                 <p className='centro'>📦 Enviamos a todo el país, con seguimiento en tiempo real.</p>
                 <p className='centro'>🤝 Y si algo no te convence, nuestro equipo de atención está listo para ayudarte.</p>
-                <p>Gracias por elegirnos. Porque detrás de cada clic, hay una historia que queremos cpmpartir con vos.</p>
+                <p>Gracias por elegirnos. Porque detrás de cada clic, hay una historia que queremos compartir con vos.</p>
             </section>
 
 

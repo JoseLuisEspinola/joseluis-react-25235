@@ -21,15 +21,21 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-title">Ecommerce Store</div>
 
+      {user && (
+      <div className="user-name" title={user.name}>
+        {user.name.slice(0, maxChars)}{user.name.length > maxChars ? '…' : ''}
+      </div>
+      )}
+
       <input type="checkbox" id="menu-toggle" />
       <label htmlFor="menu-toggle" className="menu-icon">☰</label>
         
-      {user && (
+      {/* {user && (
         <li className="user-name" title={user.name}>
           {user.name.slice(0, maxChars)}{user.name.length > maxChars ? '…' : ''}
         </li>
       )}
-
+ */}
       <ul className="navbar-links">
         <li><Link to="/">Inicio</Link></li>
         <li><Link to="/productos">Productos</Link></li>
