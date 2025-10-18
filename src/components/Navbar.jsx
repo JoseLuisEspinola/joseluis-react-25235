@@ -35,7 +35,8 @@ function Navbar() {
           {user.name.slice(0, maxChars)}{user.name.length > maxChars ? '…' : ''}
         </li>
       )}
- */}
+      */}
+
       <ul className="navbar-links">
         <li><Link to="/">Inicio</Link></li>
         <li><Link to="/productos">Productos</Link></li>
@@ -49,8 +50,7 @@ function Navbar() {
               className="logout-link"
               title="Cerrar sesión"
               onClick={cerrarSesion}
-              style={{ cursor: 'pointer' }}
-            >
+              style={{ cursor: 'pointer' }}>
               🔓
             </span>
           </li>
@@ -68,6 +68,6 @@ function Navbar() {
       </ul>
     </nav>
   );
-}
+};
 
 export default Navbar;
